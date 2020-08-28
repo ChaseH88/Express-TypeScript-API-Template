@@ -1,14 +1,15 @@
 require("dotenv").config({ path: './config.env' }); // environment variables
 
-//============= STORE API =============
+// Imports
 import express from "express";
-const app = express();
 import path from "path";
 import morgan from 'morgan';
 import fileupload from "express-fileupload";
 import cookieParser from "cookie-parser";
 import bodyParser from 'body-parser';
 import cors from 'cors';
+
+const app = express();
 const _PORT = process.env.PORT || 6000;
 
 // Middlewares

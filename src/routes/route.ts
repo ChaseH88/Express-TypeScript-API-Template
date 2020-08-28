@@ -1,6 +1,6 @@
-const express = require("express");
+import express from "express";
+import { getRoute } from "../controllers/route";
 const router = express.Router();
-const { getRoute } =  require('../controllers/route');
 
 router
   .route("/")

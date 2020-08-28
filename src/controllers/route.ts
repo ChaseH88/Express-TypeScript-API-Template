@@ -1,3 +1,4 @@
+import { Request, Response, NextFunction } from "express";
 import asyncHandler from "../middleware/async";
 
 /**
@@ -6,7 +7,7 @@ import asyncHandler from "../middleware/async";
  * @route /api/
  * @access Public
  */
-export const getRoute = asyncHandler(async (req: any, res: any, next: any) => {
+export const getRoute = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
 
   res.status(200).json({
     success: true,
