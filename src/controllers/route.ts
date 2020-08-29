@@ -8,10 +8,5 @@ import asyncHandler from "../middleware/async";
  * @access Public
  */
 export const getRoute = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
-
-  res.status(200).json({
-    success: true,
-    data: {}
-  });
-
+  res.status(200).render('home');
 });

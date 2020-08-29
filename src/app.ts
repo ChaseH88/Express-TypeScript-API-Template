@@ -18,7 +18,10 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(fileupload());
-app.use(express.static(path.join(__dirname, 'public')));
+
+// View Engine
+app.set("view engine", "ejs");
+app.set('views', path.join(__dirname, './views'))
 
 // Routes
 import route from "./routes/route";

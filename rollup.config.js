@@ -1,6 +1,7 @@
 import typescript from 'rollup-plugin-typescript2';
 import progress from 'rollup-plugin-progress';
 import cleanup from 'rollup-plugin-cleanup';
+import copy from 'rollup-plugin-copy'
 
 const rollupConfig = [
   {
@@ -13,25 +14,17 @@ const rollupConfig = [
       typescript({
         typescript: require('typescript')
       }),
-      progress(),
+      copy({
+        targets: [
+          { src: 'src/views', dest: 'build' }
+        ]
+      }),
       cleanup({
         comments: 'none'
-      })
+      }),
+      progress()
     ]
-  },
-  // {
-  //   input: 'main-b.js',
-  //   output: [
-  //     {
-  //       file: 'dist/bundle-b1.js',
-  //       format: 'cjs'
-  //     },
-  //     {
-  //       file: 'dist/bundle-b2.js',
-  //       format: 'es'
-  //     }
-  //   ]
-  // }
+  }
 ];
 
 export default rollupConfig;
