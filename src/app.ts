@@ -24,12 +24,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 import route from "./routes/route";
 
 // Request Logger
-process.env.NODE_ENV === 'development' && (() => 
+process.env.NODE_ENV === 'development' && (() =>
   app.use(morgan('dev'))
 )();
 
 // Use Routes
-app.use(`/api`, route);
+app.use(`/`, route);
 
 // Listener
 const server = app.listen(_PORT, () => {
