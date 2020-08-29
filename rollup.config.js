@@ -1,5 +1,6 @@
 import typescript from 'rollup-plugin-typescript2';
 import progress from 'rollup-plugin-progress';
+import cleanup from 'rollup-plugin-cleanup';
 
 const rollupConfig = [
   {
@@ -12,7 +13,10 @@ const rollupConfig = [
       typescript({
         typescript: require('typescript')
       }),
-      progress()
+      progress(),
+      cleanup({
+        comments: 'none'
+      })
     ]
   },
   // {
