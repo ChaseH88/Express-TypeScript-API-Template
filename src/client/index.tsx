@@ -13,4 +13,7 @@ const App: FC = () => (
 );
 
 const root = document.querySelector("#app");
-ReactDOM.render(<App />, root);
+
+if (root !== null) {
+  ReactDOM.render(<App /> , root)
+}
