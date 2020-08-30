@@ -1,4 +1,4 @@
-require("dotenv").config({ path: './config.env' }); // environment variables
+require("dotenv").config({ path: '../../config.env' }); // environment variables
 
 // Imports
 import express from "express";
@@ -33,6 +33,8 @@ process.env.NODE_ENV === 'development' && (() =>
 
 // Use Routes
 app.use(`/`, route);
+app.use('/app.js', express.static(path.join(__dirname, '../build/app.js'))) // serve the client app to the user
+console.log('TESTING: ', path.join(__dirname))
 
 // Listener
 const server = app.listen(_PORT, () => {

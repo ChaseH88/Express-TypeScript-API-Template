@@ -1,28 +1,27 @@
 import typescript from 'rollup-plugin-typescript2';
 import progress from 'rollup-plugin-progress';
 import cleanup from 'rollup-plugin-cleanup';
-import copy from 'rollup-plugin-copy'
+import copy from 'rollup-plugin-copy';
+import commonjs from '@rollup/plugin-commonjs';
 
 const rollupConfig = [
   {
-    input: './src/server/app.ts',
+    input: './index.tsx',
     output: {
-      file: 'build/server.js',
+      file: '../../build/app.js',
       format: 'cjs'
     },
     plugins: [
       typescript({
         typescript: require('typescript')
       }),
-      copy({
-        targets: [
-          { src: 'src/server/views', dest: 'build' }
-        ]
-      }),
       cleanup({
         comments: 'none'
       }),
-      progress()
+      progress(),
+      commonjs({
+        include: 'node_modules/**'
+      })
     ]
   }
 ];
