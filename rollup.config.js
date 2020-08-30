@@ -5,7 +5,7 @@ import copy from 'rollup-plugin-copy'
 
 const rollupConfig = [
   {
-    input: './src/app.ts',
+    input: './src/server/app.ts',
     output: {
       file: 'build/server.js',
       format: 'cjs'
@@ -16,7 +16,7 @@ const rollupConfig = [
       }),
       copy({
         targets: [
-          { src: 'src/views', dest: 'build' }
+          { src: 'src/server/views', dest: 'build' }
         ]
       }),
       cleanup({
