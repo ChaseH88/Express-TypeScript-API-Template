@@ -9,6 +9,10 @@ import asyncHandler from "../middleware/async";
  */
 export const getRoute = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
   res.status(200).render('home', {
-    welcome: 'Welcome to the home page!!!'
+    app_data: {
+      welcome: 'Welcome to the home page!!!',
+      testing: 'another test!',
+      footer: 'Copyright',
+    }
   });
 });
